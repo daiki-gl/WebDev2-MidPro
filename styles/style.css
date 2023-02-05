@@ -425,6 +425,7 @@ button {
 
 .header__container {
   position: fixed;
+  align-items: center;
   justify-content: space-between;
   top: 0;
   left: 0;
@@ -528,6 +529,42 @@ button {
   transition: background-color 0.3s;
 }
 
+.footer {
+  background-color: #8F2B2B;
+  color: #fff;
+}
+.footer__container {
+  align-items: flex-start;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: 0 auto;
+  padding: 80px 20px 20px;
+}
+.footer__logo {
+  margin: 0;
+}
+.footer__list {
+  margin: 0;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer__list-title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.footer__item {
+  margin-bottom: 10px;
+}
+
+.copyright {
+  margin: 0;
+  padding: 10px 0 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .cart-box {
   display: none;
 }
@@ -612,7 +649,6 @@ ul {
 
 .flex {
   display: flex;
-  align-items: center;
 }
 
 .container {

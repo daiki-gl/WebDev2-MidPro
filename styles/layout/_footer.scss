@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as var;
+
+.footer {
+    background-color: var.$secondary-color;
+    color: var.$text-white;
+
+    &__container {
+        align-items: flex-start;
+        justify-content: space-evenly;
+        width: 70%;
+        margin: 0 auto;
+        padding: 80px 20px 20px;
+    }
+
+    &__logo {
+        margin: 0;
+    }
+
+    &__list {
+        margin: 0;
+        flex-direction: column;
+        justify-content: space-between;
+        &-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+    }
+
+    &__item {
+        margin-bottom: 10px;
+    }
+}
+
+.copyright {
+    margin: 0;
+    padding: 10px 0 20px;
+    text-align: center;
+    color: var.$text-white;
+    font-size: 12px;
+    font-weight: bold;
+}
