@@ -39,8 +39,14 @@ button {
     transition: opacity .3s;
     &:hover {
         color: var.$text-white;
-        background-color: var.$btn-secondary-color;
         opacity: .8;
+    }
+}
+
+.btn-details {
+    width: calc(100% - 40px);
+    &:hover {
+        background-color: var.$btn-secondary-color;
     }
 }
 
