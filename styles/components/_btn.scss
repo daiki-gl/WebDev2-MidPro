@@ -7,8 +7,9 @@ button {
 
 .btn {
     display: block;
-    padding: 10px 20px;
     width: 200px;
+    padding: 10px 20px;
+    margin: 20px 0;
     text-align: center;
     background-color: var.$primary-color;
     border-radius: 5px;
@@ -20,7 +21,33 @@ button {
     }
 }
 
+.btn-circle {
+    border-radius: 30px;
+}
+
 .hero__btn {
     width: 300px;
     padding: 15px 20px;
+}
+
+
+.product__btn {
+    background-color: var.$btn-secondary-color;
+}
+
+.btn-details,.btn-add {
+    transition: opacity .3s;
+    &:hover {
+        color: var.$text-white;
+        background-color: var.$btn-secondary-color;
+        opacity: .8;
+    }
+}
+
+.btn-add {
+    width: 100%;
+    font-size: 1.2rem;
+    &:hover {
+        background-color: var.$primary-color;
+    }
 }
