@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Equipment Online Store</title>
+    <!-- reset.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css"
+      integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Swiper.js -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.js"
+    ></script>
+    <link
+      href="
+https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
+"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <h1 class="header__logo">Logo</h1>
+        <div class="header__search-box">
+          <input type="text" class="header__search" />
+          <button class="header__search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <div class="header__right-box">
+            <a href="#" class="header__link">CONTACT</a>
+            <a href="#" class="header__link"
+              ><i class="fa-solid fa-user"></i
+            ></a>
+            <a href="#" class="header__link"
+              ><i class="fa-solid fa-cart-shopping"></i></a
+            ><span class="cart-item">3</span>
+          </div>
+        </div>
+      </div>
+      <div class="cart-box">
+        <div class="cart-box__container">
+          <h2 class="cart-box__title">My Cart</h2>
+          <a href="#" class="cart-box__close"
+            ><i class="fa-solid fa-xmark"></i
+          ></a>
+          <ul class="cart-box__list">
+            <li class="cart-box__item">
+              <img
+                src="/img/barbel.jpeg"
+                alt="item-name"
+                class="cart-box__img"
+              />
+              <div class="cart-box__item-info">
+                <p class="cart-box__item-name">【Brand Name】Barbel set</p>
+                <span class="cart-box__item-price">$159.00</span>
+              </div>
+              <a href="#" class="cart-box__delete"
+                ><i class="fa-solid fa-trash-can"></i
+              ></a>
+            </li>
+            <li class="cart-box__item">
+              <img
+                src="/img/barbel.jpeg"
+                alt="item-name"
+                class="cart-box__img"
+              />
+              <div class="cart-box__item-info">
+                <p class="cart-box__item-name">【Brand Name】Barbel set</p>
+                <span class="cart-box__item-price">$159.00</span>
+              </div>
+              <a href="#" class="cart-box__delete"
+                ><i class="fa-solid fa-trash-can"></i
+              ></a>
+            </li>
+            <li class="cart-box__item">
+              <img
+                src="/img/barbel.jpeg"
+                alt="item-name"
+                class="cart-box__img"
+              />
+              <div class="cart-box__item-info">
+                <p class="cart-box__item-name">【Brand Name】Barbel set</p>
+                <span class="cart-box__item-price">$159.00</span>
+              </div>
+              <a href="#" class="cart-box__delete"
+                ><i class="fa-solid fa-trash-can"></i
+              ></a>
+            </li>
+          </ul>
+          <a href="#" class="cart-box__all-clear">All Clear</a>
+          <span class="cart-box__total">Sub Total $477.00</span>
+        </div>
+      </div>
+      <div class="header__category-box">
+        <ul class="header__category-list">
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">All Item</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Weights</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Benches</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Home Gyms</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Bikes</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Other Machines</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Accessories & Parts</a>
+          </li>
+          <li class="header__category-item">
+            <a href="#" class="header__category-link">Proteins</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <main class="main">
+      <section class="hero">
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <img src="/img/hero01.jpg" alt="" class="hero__img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="/img/hero02.jpg" alt="" class="hero__img" />
+            </div>
+            <div class="swiper-slide">
+              <img src="/img/hero03.jpg" alt="" class="hero__img" />
+            </div>
+          </div>
+        </div>
+        <div class="hero__text-box">
+          <h2 class="hero__title">
+            <strong>NO EXCUSES</strong>JUST DO THE<strong>WORK</strong>
+          </h2>
+          <a href="#" class="hero__btn btn">Learn More</a>
+        </div>
+      </section>
+      <section class="products">
+        <h3 class="products__title">All Items</h3>
+        <div class="container">
+          <div class="products__box">
+            <ul class="products__list">
+              <li class="products__item product">
+                <div class="product__img-box">
+                  <img src="/img/barbel.jpeg" alt="" />
+                </div>
+                <div class="product__contents">
+                  <p class="product__title">【Brand Name】Barbel set</p>
+                  <p class="product__price">
+                    $159<span class="product__price-decimal">.00</span>
+                  </p>
+                  <label class="product__quantity">Quantity</label>
+                  <select name="quantity" class="product__option">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <a href="#" class="product__btn btn btn-details"
+                    >See Details</a
+                  >
+                  <button href="#" class="product__btn btn btn-add">
+                    Add to Cart
+                  </button>
+                </div>
+              </li>
+              <li class="products__item product">
+                <div class="product__img-box">
+                  <img src="/img/barbel.jpeg" alt="" />
+                </div>
+                <div class="product__contents">
+                  <p class="product__title">【Brand Name】Barbel set</p>
+                  <p class="product__price">
+                    $159<span class="product__price-decimal">.00</span>
+                  </p>
+                  <label class="product__quantity">Quantity</label>
+                  <select name="quantity" class="product__option">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <a href="#" class="product__btn btn btn-details"
+                    >See Details</a
+                  >
+                  <button href="#" class="product__btn btn btn-add">
+                    Add to Cart
+                  </button>
+                </div>
+              </li>
+              <li class="products__item product">
+                <div class="product__img-box">
+                  <img src="/img/barbel.jpeg" alt="" />
+                </div>
+                <div class="product__contents">
+                  <p class="product__title">【Brand Name】Barbel set</p>
+                  <p class="product__price">
+                    $159<span class="product__price-decimal">.00</span>
+                  </p>
+                  <label class="product__quantity">Quantity</label>
+                  <select name="quantity" class="product__option">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <a href="#" class="product__btn btn btn-details"
+                    >See Details</a
+                  >
+                  <button href="#" class="product__btn btn btn-add">
+                    Add to Cart
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__container">
+        <h2 class="footer__logo">Logo</h2>
+        <ul class="footer__list">
+          <li class="footer__item">
+            <span class="footer__list-title">Category</span>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Weight</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Benches</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Home Gyms</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Bikes</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Other Machines</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Accessories&Parts</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Proteins</a>
+          </li>
+        </ul>
+
+        <ul class="footer__list">
+          <li class="footer__item">
+            <span class="footer__list-title">My Page</span>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Login</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Sign up</a>
+          </li>
+        </ul>
+
+        <ul class="footer__list">
+          <li class="footer__item">
+            <span class="footer__list-title">Orders & Deliveries</span>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Shipping & Deliveries</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Issues with My Order</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">About Shipping Charge</a>
+          </li>
+        </ul>
+
+        <ul class="footer__list">
+          <li class="footer__item">
+            <span class="footer__list-title">Help & Guide</span>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">FAQ</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Contact</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Guides</a>
+          </li>
+          <li class="footer__item">
+            <a href="#" class="footer__link">Privacy & Policy</a>
+          </li>
+        </ul>
+      </div>
+      <p class="copyright">©Working Equipment Co. Ltd All Rights Reserved</p>
+    </footer>
+  </body>
+</html>
