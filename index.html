@@ -5,14 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Workout Equipment Online Store</title>
-    <!-- reset.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/reseter.css/2.0.0/reseter.min.css"
-      integrity="sha512-gCJkkUMGTe73+FMwog6gIBCVJIMXRoc21l6/IPCuzxCex/1sxvO8ctb6Zd4/WWs2UMqmtnDrAdhJht5pEY0LXg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
     <!-- Swiper.js -->
     <script
       defer
@@ -37,22 +29,21 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
   </head>
   <body>
     <header class="header">
-      <div class="header__container">
+      <div class="header__container flex">
         <h1 class="header__logo">Logo</h1>
         <div class="header__search-box">
           <input type="text" class="header__search" />
           <button class="header__search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <div class="header__right-box">
-            <a href="#" class="header__link">CONTACT</a>
-            <a href="#" class="header__link"
-              ><i class="fa-solid fa-user"></i
-            ></a>
-            <a href="#" class="header__link"
-              ><i class="fa-solid fa-cart-shopping"></i></a
-            ><span class="cart-item">3</span>
-          </div>
+        </div>
+        <div class="header__right-box">
+          <a href="#" class="header__link">CONTACT</a>
+          <a href="#" class="header__link"><i class="fa-solid fa-user"></i></a>
+          <a href="#" class="header__link"
+            ><i class="fa-solid fa-cart-shopping"></i
+            ><span class="cart-item">0</span></a
+          >
         </div>
       </div>
       <div class="cart-box">
@@ -110,7 +101,7 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
         </div>
       </div>
       <div class="header__category-box">
-        <ul class="header__category-list">
+        <ul class="header__category-list flex">
           <li class="header__category-item">
             <a href="#" class="header__category-link">All Item</a>
           </li>
@@ -157,8 +148,10 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
           </div>
         </div>
         <div class="hero__text-box">
-          <h2 class="hero__title">
-            <strong>NO EXCUSES</strong>JUST DO THE<strong>WORK</strong>
+          <h2 class="hero__title title">
+            <strong>NO EXCUSES</strong><br />JUST DO THE<strong
+              ><br />WORK</strong
+            >
           </h2>
           <a href="#" class="hero__btn btn">Learn More</a>
         </div>

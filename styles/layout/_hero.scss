@@ -1,0 +1,10 @@
+.hero {
+    position: relative;
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        margin-left: 150px;
+        z-index: 100;
+    }
+}

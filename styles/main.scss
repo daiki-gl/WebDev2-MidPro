@@ -1,1 +1,13 @@
-@import "components/header";
+@import "base/typography";
+@import "base/normalize";
+
+@import "components/btn";
+@import "components/slider";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/grid";
+@import "layout/sidebar-cart";
+@import "layout/hero";
+
+@import "pages/home";

@@ -1,0 +1,27 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin-top: 129.2px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    transition: all .3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
