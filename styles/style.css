@@ -633,6 +633,22 @@ button {
   font-weight: bold;
 }
 
+.toast {
+  position: fixed;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #06AE03;
+  z-index: 9999;
+}
+
 html {
   scroll-behavior: smooth;
 }
