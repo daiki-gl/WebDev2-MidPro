@@ -605,6 +605,15 @@ button {
   background-color: #F8F8F8;
   padding: 10px 20px 20px;
 }
+.product__img-box {
+  width: 100%;
+  height: 260px;
+}
+.product__img-box img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
 .product__price {
   font-weight: bold;
   font-size: 2rem;
