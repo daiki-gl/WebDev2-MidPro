@@ -508,6 +508,9 @@ button {
   margin-left: 150px;
   z-index: 100;
 }
+.hero__title {
+  margin-bottom: 20px;
+}
 
 html {
   scroll-behavior: smooth;
