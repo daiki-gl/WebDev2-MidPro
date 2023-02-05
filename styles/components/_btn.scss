@@ -1,6 +1,8 @@
 @use "../abstracts/variables" as var;
 button {
     cursor: pointer;
+    border: none;
+    color: var.$text-white;
 }
 
 .btn {
