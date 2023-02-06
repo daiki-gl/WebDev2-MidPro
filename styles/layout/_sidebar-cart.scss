@@ -1,3 +1,100 @@
+@use "../abstracts/variables" as var;
+body {
+    &.active {
+        overflow: hidden;
+}
+
+}
+
+.close-bg {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(var.$primary-color, 0.3);
+    z-index: 9999;
+    cursor: pointer;
+    transition: left .5s;
+    &.active {
+        left: 0;
+    }
+}
 .cart-box {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -80%;
+    width: 30%;
+    height: 100%;
+    padding: 50px 30px 30px;
+    overflow-y: scroll;
+    margin-left: auto;
+    background-color: var.$white-color;
+    transition: right .5s;
+    z-index: 9999;
+    &.active {
+        right: 0;
+    }
+
+    &__title {
+        margin-top: 0;
+
+        &::after {
+            content: '';
+            display: block;
+            width: calc(100% + 60px);
+            margin-left: -30px;
+            height: 1px;
+            background: #000;
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 50px;
+        right: 30px;
+        font-size: 2rem;
+        color: var.$text-color;
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__item {
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px 10px 0;
+        border-bottom: 1px solid #7c7c7c;
+    }
+
+    &__img {
+        width: 90px;
+        height: 90px;
+        margin-right: 15px;
+        -o-object-fit: cover;
+           object-fit: cover;
+    }
+
+    &__delete {
+        color: var.$text-color;
+    }
+
+    &__all-clear {
+        display: block;
+        width: 67px;
+        margin-left: auto;
+        margin-bottom: 20px;
+        color: var.$text-color;
+    }
+
+    &__total {
+        display: block;
+        text-align: right;
+        font-size: 1.5rem;
+
+        & > span {
+            margin-left: 30px;
+        }
+    }
 }
