@@ -32,7 +32,11 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
       <div class="header__container flex">
         <h1 class="header__logo">Logo</h1>
         <div class="header__search-box">
-          <input type="text" class="header__search" />
+          <input
+            type="text"
+            class="header__search"
+            placeholder="Search Item..."
+          />
           <button class="header__search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
@@ -40,20 +44,21 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
         <div class="header__right-box">
           <a href="#" class="header__link">CONTACT</a>
           <a href="#" class="header__link"><i class="fa-solid fa-user"></i></a>
-          <a href="#" class="header__link"
+          <a id="cart" class="header__link"
             ><i class="fa-solid fa-cart-shopping"></i
             ><span class="cart-item">0</span></a
           >
         </div>
       </div>
+      <div class="close-bg"></div>
       <div class="cart-box">
         <div class="cart-box__container">
           <h2 class="cart-box__title">My Cart</h2>
-          <a href="#" class="cart-box__close"
+          <a href="#" id="close-btn" class="cart-box__close"
             ><i class="fa-solid fa-xmark"></i
           ></a>
           <ul class="cart-box__list">
-            <li class="cart-box__item">
+            <li class="cart-box__item flex">
               <img
                 src="/img/barbel.jpeg"
                 alt="item-name"
@@ -67,7 +72,7 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
                 ><i class="fa-solid fa-trash-can"></i
               ></a>
             </li>
-            <li class="cart-box__item">
+            <li class="cart-box__item flex">
               <img
                 src="/img/barbel.jpeg"
                 alt="item-name"
@@ -81,7 +86,7 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
                 ><i class="fa-solid fa-trash-can"></i
               ></a>
             </li>
-            <li class="cart-box__item">
+            <li class="cart-box__item flex">
               <img
                 src="/img/barbel.jpeg"
                 alt="item-name"
@@ -97,7 +102,7 @@ https://cdn.jsdelivr.net/npm/swiper@9.0.2/swiper-bundle.min.css
             </li>
           </ul>
           <a href="#" class="cart-box__all-clear">All Clear</a>
-          <span class="cart-box__total">Sub Total $477.00</span>
+          <span class="cart-box__total">Sub Total <span>$477.00</span></span>
         </div>
       </div>
       <div class="header__category-box">
