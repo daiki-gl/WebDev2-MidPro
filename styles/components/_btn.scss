@@ -4,7 +4,6 @@ button {
     border: none;
     color: var.$text-white;
 }
-
 .btn {
     display: block;
     width: 200px;
@@ -14,27 +13,21 @@ button {
     background-color: var.$primary-color;
     border-radius: 5px;
     transition: background-color .3s, color .3s;
-
     &:hover {
         color: var.$primary-color;
         background-color: var.$white-color;
     }
 }
-
 .btn-circle {
     border-radius: 30px;
 }
-
 .hero__btn {
     width: 300px;
     padding: 15px 20px;
 }
-
-
 .product__btn {
     background-color: var.$btn-secondary-color;
 }
-
 .btn-details,.btn-add {
     transition: opacity .3s;
     &:hover {
@@ -42,18 +35,23 @@ button {
         opacity: .8;
     }
 }
-
 .btn-details {
     width: calc(100% - 40px);
     &:hover {
         background-color: var.$btn-secondary-color;
     }
 }
-
 .btn-add {
     width: 100%;
     font-size: 1.2rem;
     &:hover {
         background-color: var.$primary-color;
+    }
+}
+.btn-check-out {
+    width: 100%;
+    &:hover {
+        color: var.$text-white;
+        background-color: var.$secondary-color;
     }
 }

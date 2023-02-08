@@ -1,14 +1,16 @@
+@use "../abstracts/variables" as var;
 .hero {
     position: relative;
     &__text-box {
         position: absolute;
-        top: 40%;
-        transform: translateY(-50%);
+        transform: translateY(-150%);
         margin-left: 150px;
         z-index: 100;
     }
-
     &__title {
         margin-bottom: 20px;
+       & > strong:first-child {
+        color: var.$primary-color;
+       }
     }
 }

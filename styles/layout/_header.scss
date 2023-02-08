@@ -1,7 +1,6 @@
 @use '../abstracts/variables' as var;
 
 .header {
-    
     &__container {
         position: fixed;
         align-items: center;
@@ -13,24 +12,20 @@
         background-color: var.$primary-color;
         z-index: 999;
     }
-
     &__logo {
         flex-grow: 2;
         margin: 0;
     }
-
     &__search-box {
         flex-basis: 100%;
         max-width: 650px;
     }
-
     &__search {
         width: calc(90% - 64px);
         padding: 10px;
         border: none;
         border-radius: 10px 0 0 10px;
         transition: box-shadow .3s;
-        
         &:focus {
             outline: none;
             box-shadow: 2px 2px 4px rgba(0,0,0,.3);
@@ -44,39 +39,32 @@
     &__search-btn {
         border: none;
         padding: 10px;
-        border-radius: 0 10px 10px 0;
         width: calc(80px - 16px);
         margin-left: -4px;
+        border-radius: 0 10px 10px 0;
         background-color: var.$text-color;
         transition: background-color .3s, box-shadow .3s;
-
         i {
             color: var.$text-white;
         }
-
         &:hover {
             background-color: var.$secondary-color;
         }
     }
-
     &__right-box {
         flex-grow: 1;
         text-align: right;
     }
-
     &__link {
         display: inline-block;
         margin-right: 20px;
         text-align: center;
-
         &:hover {
             color: var.$secondary-color;
         }
-        
         &:last-child:hover {
             .cart-item {
                 color: var.$white-color;
-
                 &::before {
                     background-color: var.$secondary-color;
                 }
@@ -93,14 +81,12 @@
         padding: 15px 20px;
         z-index: 999;
     }
-
     &__category-list {
         width: 70%;
         justify-content: space-evenly;
         margin: 0 auto;
     }
 }
-
 .cart-item {
     position: relative;
     top: -18px;
@@ -110,7 +96,6 @@
     color: var.$text-color;
     border-radius: 50%;
     transition: color .3s;
-    
     &::before {
         content: '';
         display: block;

@@ -1,16 +1,15 @@
 @use "../abstracts/variables" as var;
 body {
-    &.active {
-        overflow: hidden;
-}
-
+  &.active {
+      overflow: hidden;
+  }
 }
 
 .close-bg {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 100%;
+    width: 70%;
     height: 100vh;
     background: rgba(var.$primary-color, 0.3);
     z-index: 9999;
@@ -25,8 +24,8 @@ body {
     top: 0;
     right: -80%;
     width: 30%;
-    height: 100%;
-    padding: 50px 30px 30px;
+    height: 100vh;
+    padding: 0 30px;
     overflow-y: scroll;
     margin-left: auto;
     background-color: var.$white-color;
@@ -36,9 +35,11 @@ body {
         right: 0;
     }
 
+    &__container {
+        padding: 50px 0;
+    }
     &__title {
         margin-top: 0;
-
         &::after {
             content: '';
             display: block;
@@ -56,18 +57,14 @@ body {
         font-size: 2rem;
         color: var.$text-color;
     }
-
     &__list {
         padding: 0;
     }
-
     &__item {
         align-items: center;
-        justify-content: space-between;
         padding: 10px 20px 10px 0;
         border-bottom: 1px solid #7c7c7c;
     }
-
     &__img {
         width: 90px;
         height: 90px;
@@ -75,11 +72,10 @@ body {
         -o-object-fit: cover;
            object-fit: cover;
     }
-
     &__delete {
         color: var.$text-color;
+        margin-left: auto;
     }
-
     &__all-clear {
         display: block;
         width: 67px;
@@ -87,12 +83,10 @@ body {
         margin-bottom: 20px;
         color: var.$text-color;
     }
-
     &__total {
         display: block;
         text-align: right;
         font-size: 1.5rem;
-
         & > span {
             margin-left: 30px;
         }

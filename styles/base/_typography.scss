@@ -1,42 +1,33 @@
 @use "../abstracts/variables" as var;
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Gelasio:wght@400;700&family=Hind+Siliguri:wght@300;600&display=swap');
 
-
 body {
     font-family: 'Hind Siliguri', sans-serif;
     font-weight: normal;
     color: var.$text-color;
 }
-
 h1,h2,h3 {
     font-weight: 600;
 }
-
 h1 {
     font-size: 3rem;
 }
-
 h2 {
     font-size: 2rem;
 }
-
 h3 {
     font-size: 1.5rem;
 }
-
 p,a {
     font-size: 1.2rem;
 }
-
 a {
     color: var.$text-white;
     text-decoration: none;
-
     &:hover {
         color: var.$primary-color;
     }
 }
-
 .title {
     font-family: 'Alfa Slab One', cursive;
     font-size: 4rem;
