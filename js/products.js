@@ -8,16 +8,16 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
   const searchText = document.querySelector('.header__search')
   const categoriesList = document.querySelector('.header__category-list')
   const categoriesTemplate = document.querySelector('#category-tmp')
+  const title = document.querySelector('.products__title')
 
   async function sendHttpRequest(method, url) {
     const { data } = await axios(url, { method })
-    // console.log(data)
     return data
   }
 
+  let prevQuantity = 0
   async function fetchData(text, type) {
     const responseData = await sendHttpRequest('GET', PRODUCT_URL)
-    console.log(responseData)
 
     showProducts(responseData)
     if (text !== undefined && type !== 'category') {
@@ -25,14 +25,13 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
     } else if (text !== undefined && type === 'category') {
       searchProductsByCategory(responseData, text)
     }
-    addCart(responseData)
+    prevQuantity = addCart(responseData, prevQuantity)
   }
   window.addEventListener('DOMContentLoaded', fetchData())
 
   /// ===================================
   // search
   // ===================================
-  const title = document.querySelector('.products__title')
   searchBtn.addEventListener('click', function () {
     title.textContent = 'Search keyword: ' + searchText.value
     fetchData(searchText.value)
@@ -51,6 +50,7 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
         .querySelector('.product__img-box img')
         .setAttribute('src', product.image)
       productElClone.querySelector('.product__contents')
+      productElClone.querySelector('.products__item').dataset.price = price
       productElClone.querySelector('.products__item').id = product.id
 
       productsList.appendChild(productElClone)
@@ -87,64 +87,153 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
   // ===================================
   // Add cart
   // ===================================
-  const cartItemNum = document.querySelector('.cart-item')
+  const cartItemNumEl = document.querySelector('.cart-item')
   const costTotalEl = document.querySelector('.cart-box__total span span')
   let costTotal = 0
-  cartItemNum.textContent = 0
+  cartItemNumEl.textContent = 0
   let myCart = []
+  let showMyCart
+  let cartItemNum = 0
 
   function addCart(products) {
-    // console.log(products)
     const toast = document.querySelector('.toast')
     const addBtns = document.querySelectorAll('.btn-add')
-    const pushingData = []
+    const a = document.querySelectorAll('.cart-box__item')
 
     addBtns.forEach(function (addBtn) {
       addBtn.addEventListener('click', function () {
-        for (const product of products) {
-          let quantity = Number(
-            this.previousElementSibling.previousElementSibling.value
-          )
+        let quantity = Number(
+          this.previousElementSibling.previousElementSibling.value
+        )
+        const thisId = this.parentNode.parentNode.id
+        let subTotal = this.parentNode.parentNode.dataset.price * quantity
 
-          for (let i = 0; i < quantity; i++) {
-            if (this.parentNode.parentNode.id == product.id) {
-              myCart.push(product)
-              pushingData.push(product)
-            }
-          }
-        }
-        // cart list
-        for (const cartItem of pushingData) {
-          const price = cartItem.price.toFixed(2)
-          const cartElClone = document.importNode(cartTemplate.content, true)
-          cartElClone.querySelector('.cart-box__item-name').textContent =
-            cartItem.title
-          cartElClone.querySelector('.cart-box__item-price span').textContent =
-            price
-          cartElClone
-            .querySelector('.cart-box__img')
-            .setAttribute('src', cartItem.image)
-          cartElClone.querySelector('.cart-box__item-info')
-          cartElClone.querySelector('.cart-box__item').id = cartItem.id
-          cartList.appendChild(cartElClone)
-
-          costTotal += cartItem.price
-        }
-        pushingData.splice(0)
-        // Show and hide toast
         toast.classList.add('active')
         setTimeout(() => toast.classList.remove('active'), 2000)
 
-        cartItemNum.textContent = myCart.length
-        costTotalEl.textContent = costTotal.toFixed(2)
+        if (myCart.length == 0) {
+          // adding quantity property
+          for (const product of products) {
+            if (thisId == product.id) {
+              product['quantity'] = quantity
+              myCart.push(product)
+            }
+          }
+          makeEl(thisId)
+          cartItemNum += quantity
+          cartItemNumEl.textContent = cartItemNum
+
+          costTotal += subTotal
+          costTotalEl.textContent = costTotal.toFixed(2)
+          deleteFn()
+          deleteAll()
+          return
+        }
+
+        // Deleting shown cart items
+        while (cartList.firstChild) {
+          cartList.removeChild(cartList.firstChild)
+        }
+
+        if (isExistsSameValue(myCart, thisId)) {
+          console.log('true Exist')
+
+          for (const product of myCart) {
+            if (thisId == product.id) {
+              let newQ = product.quantity + quantity
+              product.quantity = newQ
+              updateEl(newQ, thisId)
+            }
+          }
+          cartItemNum += quantity
+          cartItemNumEl.textContent = cartItemNum
+
+          costTotal += subTotal
+          costTotalEl.textContent = costTotal.toFixed(2)
+        } else {
+          console.log('not exist')
+          for (const product of products) {
+            if (thisId == product.id) {
+              product['quantity'] = quantity
+              myCart.push(product)
+            }
+          }
+          makeEl(thisId)
+          cartItemNum += quantity
+          cartItemNumEl.textContent = cartItemNum
+
+          costTotal += subTotal
+          costTotalEl.textContent = costTotal.toFixed(2)
+        }
 
         deleteFn()
         deleteAll()
-
-        console.log(myCart)
-
-        return this
+        return quantity
       })
+    })
+  }
+
+  function isExistsSameValue(myCart, thisId) {
+    let isExist = false
+    showMyCart = new Set(myCart)
+    showMyCart.forEach((item) => {
+      if (item.id == thisId) {
+        isExist = true
+        return
+      }
+    })
+    return isExist
+  }
+
+  function updateEl(prevQuantity, thisId) {
+    myCart.forEach((cartItem) => {
+      if (cartItem.quantity != 0) {
+        const price = cartItem.price.toFixed(2)
+        const cartElClone = document.importNode(cartTemplate.content, true)
+        cartElClone.querySelector('.cart-box__item-name').textContent =
+          cartItem.title
+        cartElClone.querySelector('.cart-box__item-price span').textContent =
+          price
+        if (thisId == cartItem.id) {
+          cartElClone.querySelector(
+            '.cart-box__item-quantity span'
+          ).textContent = prevQuantity
+        } else {
+          // if (cartItem.quantity == 0)
+          cartElClone.querySelector(
+            '.cart-box__item-quantity span'
+          ).textContent = cartItem.quantity
+        }
+        cartElClone
+          .querySelector('.cart-box__img')
+          .setAttribute('src', cartItem.image)
+        cartElClone.querySelector('.cart-box__item-info')
+        cartElClone.querySelector('.cart-box__item').id = cartItem.id
+
+        cartList.appendChild(cartElClone)
+      }
+      return
+    })
+  }
+
+  function makeEl(thisId) {
+    myCart.forEach((cartItem) => {
+      if (cartItem.quantity != 0) {
+        const price = cartItem.price.toFixed(2)
+        const cartElClone = document.importNode(cartTemplate.content, true)
+        cartElClone.querySelector('.cart-box__item-name').textContent =
+          cartItem.title
+        cartElClone.querySelector('.cart-box__item-price span').textContent =
+          price
+        cartElClone.querySelector('.cart-box__item-quantity span').textContent =
+          cartItem.quantity
+        cartElClone
+          .querySelector('.cart-box__img')
+          .setAttribute('src', cartItem.image)
+        cartElClone.querySelector('.cart-box__item-info')
+        cartElClone.querySelector('.cart-box__item').id = cartItem.id
+        cartList.appendChild(cartElClone)
+      }
     })
   }
 
@@ -156,17 +245,28 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
   }
 
   function deleteItem() {
-    this.parentNode.remove()
     let index = myCart.findIndex(({ id }) => {
       return id == Number(this.parentNode.id)
     })
 
-    subtractCost(myCart[index].price)
-    if (index >= 0) {
-      myCart.splice(index, 1)
+    for (const product of myCart) {
+      if (product.id == this.parentNode.id && product.quantity > 0) {
+        console.log('product id: ' + product.id)
+        console.log('Node id: ' + this.parentNode.id)
+        product.quantity--
+        cartItemNum--
+        document.querySelector(
+          `.cart-box__item[id="${this.parentNode.id}"] .cart-box__item-info .cart-box__item-quantity span`
+        ).textContent = product.quantity
+        cartItemNumEl.textContent = cartItemNum
+      }
+
+      if (product.id == this.parentNode.id && product.quantity == 0)
+        this.parentNode.remove()
+      cartItemNumEl.textContent = cartItemNum
     }
-    cartItemNum.textContent = myCart.length
-    return
+
+    subtractCost(myCart[index].price)
   }
 
   function deleteAll() {
@@ -179,8 +279,9 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
 
       myCart.splice(0)
       costTotal = 0
+      cartItemNum = 0
       costTotalEl.textContent = costTotal.toFixed(2)
-      cartItemNum.textContent = myCart.length
+      cartItemNumEl.textContent = cartItemNum
     })
   }
 
@@ -188,7 +289,7 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
     costTotal -= Math.round(subtractAmount * 100) / 100
     if (costTotal < 0) costTotal = 0
     costTotalEl.textContent = costTotal.toFixed(2)
-    console.log(costTotal)
+    // console.log(costTotal)
     return
   }
 
