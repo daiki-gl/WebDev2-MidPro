@@ -77,6 +77,7 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
           .querySelector('.product__img-box img')
           .setAttribute('src', product.image)
         productElClone.querySelector('.product__contents')
+        productElClone.querySelector('.products__item').dataset.price = price
         productElClone.querySelector('.products__item').id = product.id
 
         productsList.appendChild(productElClone)
@@ -98,7 +99,6 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
   function addCart(products) {
     const toast = document.querySelector('.toast')
     const addBtns = document.querySelectorAll('.btn-add')
-    const a = document.querySelectorAll('.cart-box__item')
 
     addBtns.forEach(function (addBtn) {
       addBtn.addEventListener('click', function () {
@@ -199,7 +199,6 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
             '.cart-box__item-quantity span'
           ).textContent = prevQuantity
         } else {
-          // if (cartItem.quantity == 0)
           cartElClone.querySelector(
             '.cart-box__item-quantity span'
           ).textContent = cartItem.quantity
@@ -216,7 +215,7 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
     })
   }
 
-  function makeEl(thisId) {
+  function makeEl() {
     myCart.forEach((cartItem) => {
       if (cartItem.quantity != 0) {
         const price = cartItem.price.toFixed(2)
@@ -298,7 +297,6 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
   // ===================================
   async function fetchCategoryData() {
     const responseData = await sendHttpRequest('GET', CATEGORY_URL)
-
     showCategories(responseData)
     searchByCategory()
   }
@@ -348,6 +346,7 @@ const products = (PRODUCT_URL, CATEGORY_URL) => {
           .querySelector('.product__img-box img')
           .setAttribute('src', product.image)
         productElClone.querySelector('.product__contents')
+        productElClone.querySelector('.products__item').dataset.price = price
         productElClone.querySelector('.products__item').id = product.id
 
         productsList.appendChild(productElClone)
